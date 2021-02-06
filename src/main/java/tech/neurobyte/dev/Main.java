@@ -10,22 +10,22 @@ import javafx.stage.Stage;
 import tech.neurobyte.dev.utils.R;
 
 public class Main extends Application {
+
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
+        stage.setTitle("Sigma");
+        stage.getIcons().clear();
+        stage.getIcons().add(new Image("images/logo.png", 0, 0, true, true, false));
+        stage.setFullScreen(false);
+        stage.setFullScreenExitHint("Press Esc");
+        stage.setFullScreenExitKeyCombination(KeyCombination.keyCombination(KeyCode.ESCAPE.toString()));
+        stage.setScene(new Scene(FXMLLoader.load(R.getResource("fxml/main.fxml"))));
+
         Cortex.stage = stage;
-        Cortex.stage.setTitle("Sigma");
-        Cortex.stage.getIcons().clear();
-        Cortex.stage.getIcons().add(new Image("images/logo.png", 0, 0, true, true, false));
-
-        Cortex.stage.setFullScreen(false);
-        Cortex.stage.setFullScreenExitHint("Press Esc");
-        Cortex.stage.setFullScreenExitKeyCombination(KeyCombination.keyCombination(KeyCode.ESCAPE.toString()));
-
-        Cortex.stage.setScene(new Scene(FXMLLoader.load(R.getResource("fxml/main.fxml"))));
         Cortex.stage.show();
     }
 }

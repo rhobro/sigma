@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXScrollPane?>
-<JFXScrollPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-               minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1"/>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<JFXDrawer minHeight="600.0" minWidth="400.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tech.neurobyte.dev.controllers.MainController">
+   <content>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <JFXScrollPane VBox.vgrow="ALWAYS">
+            <content>
+               <JFXComboBox fx:id="currencyPicker" labelFloat="true" promptText="Currency"/>
+               <JFXListView fx:id="list">
+            </JFXListView>
+            </content>
+         </JFXScrollPane>
+         <HBox>
+            <padding>
+               <Insets bottom="7.0" left="7.0" right="7.0" top="11.0"/>
+            </padding>
+            <JFXTextField fx:id="expenseField" labelFloat="true" promptText="Expense" HBox.hgrow="ALWAYS"/>
+            <JFXTextField fx:id="valueField" labelFloat="true" promptText="Value" HBox.hgrow="ALWAYS"/>
+            <JFXButton fx:id="add" buttonType="RAISED" minWidth="60.0" text="Add">
+               <HBox.margin>
+                  <Insets left="10.0"/>
+               </HBox.margin>
+            </JFXButton>
+         </HBox>
+      </VBox>
+   </content>
+</JFXDrawer>
