@@ -3,6 +3,7 @@ package tech.neurobyte.dev.utils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -18,9 +19,9 @@ public class Currency {
             // CSS select rows in table
             list = new HashMap<>();
             for (Element row : doc.select("table#tablepress-181 > tbody > tr")) {
-                var cols = row.select("td");
-                var name = cols.get(2).text();
-                var symbol = cols.get(4).text();
+                Elements cols = row.select("td");
+                String name = cols.get(2).text();
+                String symbol = cols.get(4).text();
 
                 // add to hashmap
                 Currency.list.put(name, symbol);

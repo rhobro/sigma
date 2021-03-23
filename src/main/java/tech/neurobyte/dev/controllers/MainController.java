@@ -4,14 +4,11 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import tech.neurobyte.dev.Main;
+import javafx.scene.layout.GridPane;
 import tech.neurobyte.dev.utils.Currency;
 
 import java.net.URL;
@@ -20,9 +17,8 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    // components
-    @FXML
-    private JFXListView<Label> list;
+    // internal
+    private final HashMap<String, Entry> table = new HashMap<>();
     @FXML
     private JFXComboBox<Label> currencyPicker;
 
@@ -32,9 +28,9 @@ public class MainController implements Initializable {
     private JFXTextField valueField;
     @FXML
     private JFXButton add;
-
-    // internal
-    private HashMap<String, Entry> table = new HashMap<>();
+    // components
+    @FXML
+    private JFXListView<GridPane> list;
     private static String currency = "£";
 
     @Override
@@ -65,10 +61,15 @@ public class MainController implements Initializable {
                 if (table.containsKey(expenseField.getText())) {
                     table.get(expenseField.getText()).increment(value);
                 } else {
-                    var display = new Label();
-                    var entry = new Entry(value, display);
+                    Label display = new Label();
+                    Entry entry = new Entry(value, display);
                     table.put(expenseField.getText(), entry);
-                    list.getItems().add(display);
+
+                    GridPane gridEntry = new GridPane();
+                    gridEntry.setHgap(30);
+                    gridEntry.add(new Label(expenseField.getText()), 0, 0);
+                    gridEntry.add(display, 1, 0);
+                    list.getItems().add(gridEntry);
                 }
 
                 expenseField.setText("");
@@ -77,9 +78,9 @@ public class MainController implements Initializable {
         });
     }
 
-    private class Entry {
+    private static class Entry {
         private float value;
-        private Label display;
+        private final Label display;
 
         Entry(float value, Label display) {
             this.display = display;
