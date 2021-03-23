@@ -3,11 +3,23 @@
     <output-path>$PROJECT_DIR$/out/artifacts/sigma</output-path>
     <properties id="javafx-properties">
       <options>
+        <option name="alias" value="Rohan Mathew" />
         <option name="appClass" value="tech.neurobyte.dev.Main" />
         <option name="description" value="Tool to manage basic accounts." />
+        <option name="enabledSigning" value="true" />
         <option name="height" value="600" />
         <option name="htmlPlaceholderId" value="" />
+        <option name="icons">
+          <JavaFxApplicationIcons>
+            <option name="linuxIcon" value="$PROJECT_DIR$/src/main/resources/images/logo.png" />
+            <option name="macIcon" value="$PROJECT_DIR$/src/main/resources/images/logo.icns" />
+            <option name="windowsIcon" value="$PROJECT_DIR$/src/main/resources/images/logo.png" />
+          </JavaFxApplicationIcons>
+        </option>
+        <option name="keypass" value="SW5kZXBlbmRlbmNlMTU4" />
+        <option name="keystore" value="$PROJECT_DIR$/../../../Zrelated/Dev Verification/NeuroByte Key Store/release-key.keystore" />
         <option name="nativeBundle" value="all" />
+        <option name="storepass" value="SW5kZXBlbmRlbmNlMTU4" />
         <option name="title" value="Sigma" />
         <option name="vendor" value="Rohan Mathew" />
         <option name="version" value="v1.0.0" />
